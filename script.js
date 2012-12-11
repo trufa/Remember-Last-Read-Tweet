@@ -3,12 +3,12 @@ $(window).load(function() {
 	function checkURL() {
 		
 		if(location.href !== "https://twitter.com/"){
-			$('#buscaultimo').hide();
-			$('.savetwlink').hide();
+			$('#searchLast').hide();
+			$('.saveTweetLink').hide();
 			
 		}else{
-			$('#buscaultimo').show();
-			agregarUltimo();
+			$('#searchLast').show();
+			addMarkAsLast();
 		}
 		
 		setTimeout(function() {
@@ -16,11 +16,11 @@ $(window).load(function() {
 		}, 1000);
 	}
 
-	function agregarUltimo() {
+	function addMarkAsLast() {
 
 		$('#stream-items-id > div').each(function() {
-			if($(this).find('.savetwlink').text()===""){
-				$(this).find('.tweet-actions').append('<li class="action-fav-container"><a class="savetwlink" rel="' + $(this).attr("id") + '"> Último</a></li>');//&#8c593;
+			if($(this).find('.saveTweetLink').text()===""){
+				$(this).find('.tweet-actions').append('<li class="action-fav-container"><a class="saveTweetLink" rel="' + $(this).attr("id") + '"> Último</a></li>');//&#8c593;
  			}		
 		});
 		
@@ -28,14 +28,14 @@ $(window).load(function() {
 
 	checkURL();
 	
-	$('#global-actions').append('<li><a class="js-hover js-nav" id="buscaultimo"><img id="down-arrow"/><p id="texto-buscar" style="cursor: hand; cursor: pointer;">Buscar Último</p></a></li>');
+	$('#global-actions').append('<li><a class="js-hover js-nav" id="searchLast"><img id="down-arrow"/><p id="SearchLinkText" style="cursor: hand; cursor: pointer;">Buscar Último</p></a></li>');
 	var imgURL = chrome.extension.getURL("images/down-arrow.png");
 	document.getElementById("down-arrow").src = imgURL;
 
-	$('#buscaultimo').css("margin","-3px 0 0 -10px");
-	$('#texto-buscar').css("margin","-17px 0px 0px 24px");
+	$('#searchLast').css("margin","-3px 0 0 -10px");
+	$('#SearchLinkText').css("margin","-17px 0px 0px 24px");
 	$('.bird-topbar-etched').css("margin-left","55px");
-	$("#buscaultimo").click(function(event) {
+	$("#searchLast").click(function(event) {
 		event.preventDefault();
 		if(localStorage["lastSeenTw"] == null){
 			alert("No hay último guardado");
@@ -60,7 +60,7 @@ $(window).load(function() {
 		return last;
 	}
 	
-	$(document).on('click', '.savetwlink', function()
+	$(document).on('click', '.saveTweetLink', function()
 	{
 		if(localStorage["lastSeenTw"] != null){
 			$('#' + localStorage["lastSeenTw"]).css("border-top","0px");
