@@ -61,8 +61,6 @@ $(window).load(function() {
 		$('#' + localStorage["lastSeenTw"]).css("border-top","5px solid red");
 	});
 
-	//$(".savetwlink").click(function() {localStorage["lastSeenTw"]=$(this).attr("rel");});
-
 	function found_tweet(twid) {
 
 		if($("#" + twid).length === 0){
@@ -70,7 +68,6 @@ $(window).load(function() {
 		}
 		return true;
 	}
-	
 
 	function search_tweet(twid, lastID) {
 		if(!found_tweet(twid)){
@@ -85,7 +82,6 @@ $(window).load(function() {
 		}
 	}
 
-
 	function positionTweet(twid){
 		if ($('#' +twid).offset().top - $(window).scrollTop() != 220) {
 		//window.location.hash = '#' + twid;
@@ -98,9 +94,5 @@ $(window).load(function() {
 		}, 400);
 		}
 	}
-	
-	
-	//search_tweet();
-	
-	
+		
 });
