@@ -32,7 +32,6 @@ $(window).load(function() {
 	var imgURL = chrome.extension.getURL("images/down-arrow.png");
 	document.getElementById("down-arrow").src = imgURL;
 
-	$('#buscaultimo').css("color","#bbb");
 	$('#buscaultimo').css("margin","-3px 0 0 -10px");
 	$('#texto-buscar').css("margin","-17px 0px 0px 24px");
 	$('.bird-topbar-etched').css("margin-left","55px");
