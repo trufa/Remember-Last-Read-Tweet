@@ -1,6 +1,7 @@
 {
-  "name": "Recordar Último Tweet (Beta)",
+  "name": "__MSG_extname__",
   "version": "0.2",
+  "default_locale": "es",
   "manifest_version": 2,
   "content_scripts":[
     {
@@ -10,5 +11,3 @@
   ],
   "web_accessible_resources": ["images/down-arrow.png"]
 }
-
-

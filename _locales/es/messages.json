@@ -1,6 +1,18 @@
 {
+  "extname": {
+    "message": "Recordar último Tweet leido",
+    "description": "The extensions name"
+  },
   "save_link_text": {
     "message": "Último",
-    "description": "The text for the link that saves last tweet"
+    "description": "The text for the link that saves last tweet."
+  },
+  "search_tweet": {
+    "message": "Buscar Último",
+    "description": "The text for the link that searches for saved tweet."
+  },
+  "no_saved_tweet": {
+    "message": "No hay ningún tweet guardado como último.",
+    "description": "Alert message when no tweet has been saved yet."
   }
 }

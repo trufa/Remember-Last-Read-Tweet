@@ -1,5 +1,5 @@
 $(window).load(function() {
-
+	console.log(212);
 	function checkURL() {
 		if(location.href !== "https://twitter.com/"){
 			$('#searchLast').hide();
@@ -16,14 +16,14 @@ $(window).load(function() {
 	function addMarkAsLast() {
 		$('#stream-items-id > div').each(function() {
 			if($(this).find('.saveTweetLink').text()===""){
-				$(this).find('.tweet-actions').append('<li class="action-fav-container"><a class="saveTweetLink" rel="' + $(this).attr("id") + '"> Último</a></li>');//&#8c593;
+				$(this).find('.tweet-actions').append('<li class="action-fav-container"><a class="saveTweetLink" rel="' + $(this).attr("id") + '"> ' + chrome.i18n.getMessage("save_link_text") + '</a></li>');
  			}		
 		});
 	}
 
 	checkURL();
 	
-	$('#global-actions').append('<li><a class="js-hover js-nav" id="searchLast"><img id="down-arrow"/><p id="SearchLinkText" style="cursor: hand; cursor: pointer;">Buscar Último</p></a></li>');
+	$('#global-actions').append('<li><a class="js-hover js-nav" id="searchLast"><img id="down-arrow"/><p id="SearchLinkText" style="cursor: hand; cursor: pointer;">' + chrome.i18n.getMessage("search_tweet") + '</p></a></li>');
 	var imgURL = chrome.extension.getURL("images/down-arrow.png");
 	document.getElementById("down-arrow").src = imgURL;
 
@@ -33,7 +33,7 @@ $(window).load(function() {
 	$("#searchLast").click(function(event) {
 		event.preventDefault();
 		if(localStorage["lastSeenTw"] == null){
-			alert("No hay último guardado");
+			alert(chrome.i18n.getMessage("no_saved_tweet"));
 		}else{
 			var twid = localStorage["lastSeenTw"];
 			if (!found_tweet(twid)) {
