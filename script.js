@@ -1,29 +1,24 @@
 $(window).load(function() {
 
 	function checkURL() {
-		
 		if(location.href !== "https://twitter.com/"){
 			$('#searchLast').hide();
 			$('.saveTweetLink').hide();
-			
 		}else{
 			$('#searchLast').show();
 			addMarkAsLast();
 		}
-		
 		setTimeout(function() {
 			    checkURL();
 		}, 1000);
 	}
 
 	function addMarkAsLast() {
-
 		$('#stream-items-id > div').each(function() {
 			if($(this).find('.saveTweetLink').text()===""){
 				$(this).find('.tweet-actions').append('<li class="action-fav-container"><a class="saveTweetLink" rel="' + $(this).attr("id") + '"> Último</a></li>');//&#8c593;
  			}		
 		});
-		
 	}
 
 	checkURL();
@@ -60,8 +55,7 @@ $(window).load(function() {
 		return last;
 	}
 	
-	$(document).on('click', '.saveTweetLink', function()
-	{
+	$(document).on('click', '.saveTweetLink', function() {
 		if(localStorage["lastSeenTw"] != null){
 			$('#' + localStorage["lastSeenTw"]).css("border-top","0px");
 		}
@@ -70,7 +64,6 @@ $(window).load(function() {
 	});
 
 	function found_tweet(twid) {
-
 		if($("#" + twid).length === 0){
 			return false;
 		}
@@ -92,15 +85,13 @@ $(window).load(function() {
 
 	function positionTweet(twid){
 		if ($('#' +twid).offset().top - $(window).scrollTop() != 220) {
-		//window.location.hash = '#' + twid;
-		document.getElementById(twid).scrollIntoView();
-		var y = $(window).scrollTop();
-		$(window).scrollTop(y-220);
-		$('#' +twid).css("border-top","5px solid red");
-		setTimeout(function() {
-			    positionTweet(twid);
-		}, 400);
+			document.getElementById(twid).scrollIntoView();
+			var y = $(window).scrollTop();
+			$(window).scrollTop(y-220);
+			$('#' +twid).css("border-top","5px solid red");
+			setTimeout(function() {
+				positionTweet(twid);
+			}, 400);
 		}
 	}
-		
 });
