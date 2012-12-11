@@ -42,7 +42,7 @@ $(window).load(function() {
 				document.getElementById(twid).scrollIntoView();
 				var y = $(window).scrollTop();
 				$(window).scrollTop(y-220);
-				$('#' +twid).css("border-top","5px solid red");
+				$('#' +twid).css("border-top","5px dashed #0084B4");
 			}
 		}
 	});
@@ -60,7 +60,7 @@ $(window).load(function() {
 			$('#' + localStorage["lastSeenTw"]).css("border-top","0px");
 		}
 		localStorage["lastSeenTw"]=$(this).attr("rel");
-		$('#' + localStorage["lastSeenTw"]).css("border-top","5px solid red");
+		$('#' + localStorage["lastSeenTw"]).css("border-top","5px dashed #0084B4");
 	});
 
 	function found_tweet(twid) {
@@ -88,7 +88,7 @@ $(window).load(function() {
 			document.getElementById(twid).scrollIntoView();
 			var y = $(window).scrollTop();
 			$(window).scrollTop(y-220);
-			$('#' +twid).css("border-top","5px solid red");
+			$('#' +twid).css("border-top","5px dashed #0084B4");
 			setTimeout(function() {
 				positionTweet(twid);
 			}, 400);
