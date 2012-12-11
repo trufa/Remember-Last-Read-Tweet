@@ -82,19 +82,6 @@ $(window).load(function() {
 			}, 1000);
 		}else{
 			positionTweet(twid);
-				
-					
-			
-
-			/*
-				setTimeout(function(){
-					console.log("here");
-					//window.location.hash = '#' + twid;
-					document.getElementById(twid).scrollIntoView();
-					var y = $(window).scrollTop();
-					$(window).scrollTop(y-220);
-					$('#' +twid).css("border-top","5px solid red");
-  			}, 2000);*/
 		}
 	}
 
