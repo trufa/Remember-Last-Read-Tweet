@@ -1,0 +1,18 @@
+{
+  "extname": {
+    "message": "Remember last read Tweet",
+    "description": "The extensions name"
+  },
+  "save_link_text": {
+    "message": "Last",
+    "description": "The text for the link that saves last tweet."
+  },
+  "search_tweet": {
+    "message": "Go to Last",
+    "description": "The text for the link that searches for saved tweet."
+  },
+  "no_saved_tweet": {
+    "message": "There is no Tweet saved as last yet.",
+    "description": "Alert message when no tweet has been saved yet."
+  }
+}
