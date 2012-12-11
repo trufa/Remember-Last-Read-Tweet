@@ -42,13 +42,10 @@ $(window).load(function() {
 			alert("No hay último guardado");
 		}else{
 			var twid = localStorage["lastSeenTw"];
-			console.log(1);
 			if (!found_tweet(twid)) {
 				search_tweet(twid, getLastID());
 			}else{
-				console.log("here");
 				document.getElementById(twid).scrollIntoView();
-				
 				var y = $(window).scrollTop();
 				$(window).scrollTop(y-220);
 				$('#' +twid).css("border-top","5px solid red");
@@ -66,7 +63,6 @@ $(window).load(function() {
 	
 	$(document).on('click', '.savetwlink', function()
 	{
-		console.log(666);
 		if(localStorage["lastSeenTw"] != null){
 			$('#' + localStorage["lastSeenTw"]).css("border-top","0px");
 		}
@@ -83,7 +79,6 @@ $(window).load(function() {
 	}
 
 	function search_tweet(twid, lastID) {
-		console.log(2);
 		if(!found_tweet(twid)){
 			if (lastID != getLastID()) {
 				$("html, body").animate({ scrollTop: $(document).height() }, 500);
@@ -92,13 +87,11 @@ $(window).load(function() {
 			    search_tweet(twid);
 			}, 1000);
 		}else{
-			console.log(3);
 			positionTweet(twid);
 		}
 	}
 
 	function positionTweet(twid){
-		console.log(4);
 		if ($('#' +twid).offset().top - $(window).scrollTop() != 220) {
 		//window.location.hash = '#' + twid;
 		document.getElementById(twid).scrollIntoView();
