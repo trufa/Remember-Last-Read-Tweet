@@ -25,7 +25,7 @@ $(window).load(function() {
 		});
 		
 	}
-	
+
 	checkURL();
 	
 	$('#global-actions').append('<li><a class="js-hover js-nav" id="buscaultimo"><img id="down-arrow"/><p id="texto-buscar">Buscar Último</p></a></li>');
@@ -40,7 +40,7 @@ $(window).load(function() {
 		if(localStorage["lastSeenTw"] == null){
 			alert("No hay último guardado");
 		}else{
-			search_tweet(localStorage["lastSeenTw"]);
+			search_tweet(localStorage["lastSeenTw"], getLastID());
 		}
 	});
 	
@@ -72,23 +72,45 @@ $(window).load(function() {
 	}
 	
 
-	function search_tweet(twid) {
+	function search_tweet(twid, lastID) {
 		if(!found_tweet(twid)){
-			$("html, body").animate({ scrollTop: $(document).height() }, 0);
+			if (lastID != getLastID()) {
+				$("html, body").animate({ scrollTop: $(document).height() }, 500);
+			};
 			setTimeout(function() {
 			    search_tweet(twid);
 			}, 1000);
 		}else{
+			positionTweet(twid);
+				
+					
+			
+
+			/*
 				setTimeout(function(){
+					console.log("here");
 					//window.location.hash = '#' + twid;
 					document.getElementById(twid).scrollIntoView();
 					var y = $(window).scrollTop();
 					$(window).scrollTop(y-220);
 					$('#' +twid).css("border-top","5px solid red");
-  			}, 500);
+  			}, 2000);*/
 		}
 	}
 
+
+	function positionTweet(twid){
+		if ($('#' +twid).offset().top - $(window).scrollTop() != 220) {
+		//window.location.hash = '#' + twid;
+		document.getElementById(twid).scrollIntoView();
+		var y = $(window).scrollTop();
+		$(window).scrollTop(y-220);
+		$('#' +twid).css("border-top","5px solid red");
+		setTimeout(function() {
+			    positionTweet(twid);
+		}, 400);
+		}
+	}
 	
 	
 	//search_tweet();
