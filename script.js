@@ -28,7 +28,7 @@ $(window).load(function() {
 
 	checkURL();
 	
-	$('#global-actions').append('<li><a class="js-hover js-nav" id="buscaultimo"><img id="down-arrow"/><p id="texto-buscar">Buscar Último</p></a></li>');
+	$('#global-actions').append('<li><a class="js-hover js-nav" id="buscaultimo"><img id="down-arrow"/><p id="texto-buscar" style="cursor: hand; cursor: pointer;">Buscar Último</p></a></li>');
 	var imgURL = chrome.extension.getURL("images/down-arrow.png");
 	document.getElementById("down-arrow").src = imgURL;
 
