@@ -12,7 +12,7 @@
     "description": "The text for the link that searches for saved tweet."
   },
   "no_saved_tweet": {
-    "message": "No hay ningún tweet guardado como último.",
+    "message": "No hay ningún tweet guardado como último para",
     "description": "Alert message when no tweet has been saved yet."
   }
 }
