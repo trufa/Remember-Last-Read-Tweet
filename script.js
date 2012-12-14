@@ -1,5 +1,6 @@
 $(window).load(function() {
-	console.log(212);
+
+	var userId = $('style').attr('id').split("-")[2] + "-last-twid";
 	function checkURL() {
 		if(location.href !== "https://twitter.com/"){
 			$('#searchLast').hide();
@@ -32,10 +33,10 @@ $(window).load(function() {
 	$('.bird-topbar-etched').css("margin-left","55px");
 	$("#searchLast").click(function(event) {
 		event.preventDefault();
-		if(localStorage["lastSeenTw"] == null){
-			alert(chrome.i18n.getMessage("no_saved_tweet"));
+		if(localStorage[userId] == null){
+			alert(chrome.i18n.getMessage("no_saved_tweet") + " " + userId.split("-")[0]) + ".";
 		}else{
-			var twid = localStorage["lastSeenTw"];
+			var twid = localStorage[userId];
 			if (!found_tweet(twid)) {
 				search_tweet(twid, getLastID());
 			}else{
@@ -56,11 +57,11 @@ $(window).load(function() {
 	}
 	
 	$(document).on('click', '.saveTweetLink', function() {
-		if(localStorage["lastSeenTw"] != null){
-			$('#' + localStorage["lastSeenTw"]).css("border-top","0px");
+		if(localStorage[userId] != null){
+			$('#' + localStorage[userId]).css("border-top","0px");
 		}
-		localStorage["lastSeenTw"]=$(this).attr("rel");
-		$('#' + localStorage["lastSeenTw"]).css("border-top","5px dashed #0084B4");
+		localStorage[userId]= $(this).attr("rel");
+		$('#' + localStorage[userId]).css("border-top","5px dashed #0084B4");
 	});
 
 	function found_tweet(twid) {
