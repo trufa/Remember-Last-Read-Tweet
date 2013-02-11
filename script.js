@@ -15,7 +15,7 @@ $(window).load(function() {
 	}
 
 	function addMarkAsLast() {
-		$('#stream-items-id > div').each(function() {
+		$('#stream-items-id > li').each(function() {
 			if($(this).find('.saveTweetLink').text()===""){
 				$(this).find('.tweet-actions').append('<li class="action-fav-container"><a class="saveTweetLink" rel="' + $(this).attr("id") + '"> ' + chrome.i18n.getMessage("save_link_text") + '</a></li>');
  			}		
